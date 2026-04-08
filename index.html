@@ -434,9 +434,10 @@ function calcSignal(data){
   else{var pos=bu&&bl?(cur-bl)/(bu-bl):0.5;add('布林带回归',0,'布林位置'+(pos*100|0)+'%')}
 
   // 2 MA
-  if(m20&&cur>m20*.99&&prev<=m20*.99)add('均线支撑',1,'站上MA20('+f(m20)+')');
-  else if(m20&&cur<m20*1.01&&prev>=m20*1.01)add('均线支撑',-1,'跌破MA20('+f(m20)+')');
-  else if(m20)add('均线支撑',cur>m20?.5:-.5,'MA20='+f(m20));
+  var m20v=m20[n-1];
+  if(m20v&&cur>m20v*.99&&prev<=m20v*.99)add('均线支撑',1,'站上MA20('+f(m20v)+')');
+  else if(m20v&&cur<m20v*1.01&&prev>=m20v*1.01)add('均线支撑',-1,'跌破MA20('+f(m20v)+')');
+  else if(m20v)add('均线支撑',cur>m20v?.5:-.5,'MA20='+f(m20v));
 
   // 3 MACD
   var md=macd.d[n-1],me=macd.de[n-1],pd=macd.d[n-2],pe=macd.de[n-2];
