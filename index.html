@@ -479,7 +479,7 @@ function calcSignal(data){
   else if(sc<=-2.5){sig='SELL';stxt='做空做T';sico='🟢';scls='sell'}
   var reasons=fs.filter(function(x){return x.s!==0}).map(function(x){return x.n+': '+x.d}).join('\n')||'多空因子中性';
   return{score:sc,sig:sig,stxt:stxt,sico:sico,scls:scls,fs:fs,reasons:reasons,
-    ind:{m20:m20,bu:bu,bm:bm,bl:bl,md:md,me:me,mh:macd.h[n-1],rsi:rsi[n-1],kv:kv,dv:kdj.D[n-1]},
+    ind:{m20:m20v,bu:bu,bm:bm,bl:bl,md:md,me:me,mh:macd.h[n-1],rsi:rsi[n-1],kv:kv,dv:kdj.D[n-1]},
     date:data[n-1].date,price:cur}
 }
 
